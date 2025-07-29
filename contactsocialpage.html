@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact & Community - DoBu Martial Arts</title>
+  <link rel="stylesheet" href="gymcss.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .social-links {
+      text-align: center;
+      margin: 36px 0 18px 0;
+    }
+    .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 2em;
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      border-radius: 50%;
+      background: #222;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+      box-shadow: 0 2px 12px #00234933;
+    }
+    .social-links a.fa-facebook { background: #3b5998; }
+    .social-links a.fa-instagram { background: #e4405f; }
+    .social-links a.fa-twitter { background: #55acee; }
+    .social-links a.fa-youtube { background: #cd201f; }
+    .social-links a:hover {
+      opacity: 0.8;
+      transform: scale(1.1);
+    }
+
+    .forum-section {
+      max-width: 650px;
+      margin: 46px auto 0 auto;
+      background: linear-gradient(135deg, rgba(0,35,73,0.13) 0%, rgba(149,124,61,0.12) 100%);
+      border-radius: 18px;
+      padding: 34px 26px 32px 26px;
+      box-shadow: 0 4px 18px #00234922, 0 2px 12px #957c3d22;
+    }
+    .forum-section h2 {
+      text-align: center;
+      margin-top: 0;
+      font-size: 1.3em;
+      color: #957C3D;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+    }
+    .forum-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 22px;
+      align-items: stretch;
+    }
+    .forum-form label {
+      font-weight: 600;
+      color: #002349;
+      margin-bottom: 2px;
+    }
+    .forum-form input, .forum-form textarea {
+      font-size: 1.09em;
+      padding: 13px 12px;
+      border-radius: 10px;
+      border: 1.5px solid #b0b8c1;
+      background: #fff;
+      color: #002349;
+      font-family: inherit;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+    .forum-form textarea {
+      min-height: 110px;
+      max-height: 260px;
+      resize: vertical;
+      width: 100%;
+      font-size: 1.09em;
+    }
+    .forum-form input:focus, .forum-form textarea:focus {
+      border: 2px solid #957c3d;
+      outline: none;
+      box-shadow: 0 0 10px #957c3d44;
+    }
+    .forum-form button {
+      align-self: flex-end;
+      padding: 12px 32px;
+      border-radius: 18px;
+      background: linear-gradient(90deg, #957C3D 0%, #002349 100%);
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      font-size: 1.09em;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 18px #00234922, 0 2px 12px #957c3dcc;
+      text-shadow: 0 2px 8px #002349b0;
+      transition: background 0.21s, color 0.18s, transform 0.15s, box-shadow 0.17s;
+      cursor: pointer;
+      font-family: inherit;
+      margin-top: 10px;
+    }
+    .forum-form button:hover, .forum-form button:focus {
+      background: linear-gradient(90deg, #002349 0%, #957C3D 100%);
+      color: #fff;
+      transform: scale(1.04) translateY(-2px);
+      box-shadow: 0 8px 32px #00234955, 0 2px 16px #957c3d33;
+      outline: none;
+    }
+    .forum-messages {
+      margin-top: 10px;
+      max-height: 350px;
+      overflow-y: auto;
+      background: none;
+      border-radius: 10px;
+      padding: 0;
+      box-shadow: none;
+    }
+    .forum-message {
+      background: linear-gradient(120deg, #375ce2 0%, #002770 100%);
+      margin-bottom: 22px;
+      border-radius: 13px;
+      padding: 18px 18px 12px 18px;
+      box-shadow: 0 2px 12px #00234922;
+      position: relative;
+      min-height: 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      word-break: break-word;
+    }
+    .forum-message .forum-author {
+      font-weight: 700;
+      color: #002349;
+      margin-right: 8px;
+      font-size: 1.05em;
+    }
+    .forum-message .forum-date {
+      font-size: 0.97em;
+      color: #957C3D;
+      margin-left: 8px;
+    }
+    .forum-message .forum-text {
+      display: block;
+      margin-top: 6px;
+      color: #3fa7ff; /* Light blue for high visibility */
+      font-size: 1.13em;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .forum-message .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      background: #e73827;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      font-size: 0.97em;
+      padding: 4px 14px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background 0.2s, color 0.2s;
+      opacity: 0.85;
+    }
+    .forum-message .delete-btn:hover {
+      background: #b71c1c;
+      color: #fff;
+      opacity: 1;
+    }
+    @media (max-width: 800px) {
+      .forum-section { padding: 18px 2vw 18px 2vw; }
+      .forum-form textarea { min-width: 0; width: 98vw; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="pricing.html">Prices & Membership</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="instructors.html">Instructors</a>
+    <a href="account.html">Account</a>
+    <a href="contactsocialpage.html" class="active">Contact & Community</a>
+  </nav>
+  <main>
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>
+        Have a question, want to book a class, or need more information? Fill out the form below and our team will get back to you quickly!
+      </p><br>
+      <form id="contact-form" autocomplete="off" onsubmit="return submitContactForm();">
+        <div class="contact-row">
+          <div class="contact-col">
+            <label for="contact-name"><strong>Name</strong></label>
+            <input type="text" id="contact-name" name="contact-name" placeholder="Your name" required>
+          </div>
+          <div class="contact-col">
+            <label for="contact-email"><strong>Email</strong></label>
+            <input type="email" id="contact-email" name="contact-email" placeholder="you@email.com" required>
+          </div>
+        </div>
+        <div class="contact-field">
+          <label for="contact-subject"><strong>Subject</strong></label>
+          <input type="text" id="contact-subject" name="contact-subject" placeholder="Subject" required>
+        </div>
+        <div class="contact-field">
+          <label for="contact-message"><strong>Message</strong></label>
+          <textarea id="contact-message" name="contact-message" rows="5" placeholder="Type your message here..." required></textarea>
+        </div>
+        <button type="submit" class="contact-submit">Send Message</button>
+      </form>
+      <div id="contact-success" class="contact-success"></div>
+
+      <!-- Social Media Links Section -->
+      <div class="social-links">
+        <a href="https://facebook.com/yourpage" target="_blank" class="fa fa-facebook" title="Facebook"></a>
+        <a href="https://instagram.com/yourpage" target="_blank" class="fa fa-instagram" title="Instagram"></a>
+        <a href="https://twitter.com/yourpage" target="_blank" class="fa fa-twitter" title="Twitter"></a>
+        <a href="https://youtube.com/yourchannel" target="_blank" class="fa fa-youtube" title="YouTube"></a>
+      </div>
+
+      <!-- Forum Section -->
+      <section class="forum-section">
+        <h2>Community Forum</h2>
+        <form class="forum-form" id="forum-form" autocomplete="off" onsubmit="return submitForumPost();">
+          <label for="forum-author">Your Name</label>
+          <input type="text" id="forum-author" maxlength="32" required placeholder="Enter your name">
+          <label for="forum-message">Message</label>
+          <textarea id="forum-message" maxlength="300" required placeholder="Share your question, tip, or experience..."></textarea>
+          <button type="submit">Post</button>
+        </form>
+        <div class="forum-messages" id="forum-messages"></div>
+      </section>
+    </div>
+  </main>
+  <footer style="width:100vw; position:fixed; left:0; bottom:0; padding:8px 0; background:linear-gradient(90deg, rgba(255,255,255,0.32), rgba(0,0,0,0.17), rgba(255,255,255,0.32)); color:#fff; text-align:center; font-size:0.9em; letter-spacing:0.4px; backdrop-filter:blur(4px); z-index:100;">
+    © 2025 DoBu Martial Arts. All rights reserved.
+  </footer>
+  <script>
+    // Contact Form Submission (demo, no backend)
+    function submitContactForm() {
+      document.getElementById('contact-success').innerHTML =
+        "<span style='color:#43a047; font-weight:600;'>Thank you for contacting us! We'll respond soon.</span>";
+      document.getElementById('contact-form').reset();
+      setTimeout(() => {
+        document.getElementById('contact-success').innerHTML = "";
+      }, 6000);
+      return false; // Prevent actual form submission
+    }
+
+    // Forum Functionality with localStorage persistence
+    let forumPosts = [];
+
+    function loadForumPosts() {
+      const stored = localStorage.getItem("dobu_forum_posts");
+      forumPosts = stored ? JSON.parse(stored) : [];
+    }
+
+    function saveForumPosts() {
+      localStorage.setItem("dobu_forum_posts", JSON.stringify(forumPosts));
+    }
+
+    function submitForumPost() {
+      const author = document.getElementById('forum-author').value.trim();
+      const message = document.getElementById('forum-message').value.trim();
+      if (!author || !message) return false;
+      const date = new Date();
+      const dateStr = date.toLocaleString('en-GB', {
+        day: '2-digit', month: 'short', year: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+      });
+      const post = {
+        id: Date.now(),
+        author: escapeHtml(author),
+        message: escapeHtml(message),
+        date: dateStr
+      };
+      forumPosts.unshift(post);
+      saveForumPosts();
+      renderForumPosts();
+      document.getElementById('forum-form').reset();
+      return false;
+    }
+
+    function deleteForumPost(id) {
+      forumPosts = forumPosts.filter(post => post.id !== id);
+      saveForumPosts();
+      renderForumPosts();
+    }
+
+    function renderForumPosts() {
+      const forumMessages = document.getElementById('forum-messages');
+      forumMessages.innerHTML = '';
+      if (forumPosts.length === 0) {
+        forumMessages.innerHTML = '<div style="color:#888;text-align:center;">No posts yet. Be the first to share!</div>';
+        return;
+      }
+      forumPosts.forEach(post => {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'forum-message';
+        msgDiv.innerHTML = `
+          <button class="delete-btn" onclick="deleteForumPost(${post.id})" title="Delete this post">Delete</button>
+          <span class="forum-author">${post.author}</span>
+          <span class="forum-date">${post.date}</span>
+          <div class="forum-text">${post.message}</div>
+        `;
+        forumMessages.appendChild(msgDiv);
+      });
+    }
+
+    // Simple HTML escape
+    function escapeHtml(text) {
+      return text.replace(/[&<>"']/g, function(m) {
+        return ({
+          '&': '&amp;', '<': '&lt;', '>': '&gt;',
+          '"': '&quot;', "'": '&#39;'
+        })[m];
+      });
+    }
+
+    // Load and render posts on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      loadForumPosts();
+      renderForumPosts();
+    });
+  </script>
+</body>
+</html>

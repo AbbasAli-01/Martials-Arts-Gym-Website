@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DoBu Martial Arts - Home</title>
+  <link rel="stylesheet" href="gymcss.css" />
+  <script defer src="gymscript.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Welcome to DoBu Martial Arts, where we promote fitness, discipline, and community through martial arts. Explore our classes, meet our expert instructors, and join our growing community!" />
+  <style>
+    .cta-btn {
+      display: inline-block;
+      margin: 22px 0 18px 0;
+      padding: 14px 38px;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #957C3D 0%, #002349 100%);
+      color: #fff;
+      font-size: 1.19em;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      text-decoration: none;
+      box-shadow: 0 4px 24px #00234978, 0 2px 12px #957c3dcc;
+      text-shadow: 0 2px 10px #00234988;
+      border: none;
+      transition:
+        background 0.19s,
+        color 0.16s,
+        transform 0.15s,
+        box-shadow 0.15s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-btn:hover,
+    .cta-btn:focus {
+      background: linear-gradient(90deg, #002349 0%, #957C3D 100%);
+      color: #ffe27a;
+      transform: scale(1.055) translateY(-2px);
+      box-shadow: 0 8px 32px #00234944, 0 2px 18px #957c3d66;
+      outline: none;
+      text-shadow: 0 2px 14px #fff8;
+    }
+
+    .services-section {
+      background: linear-gradient(135deg, rgba(0,35,73,0.93) 0%, rgba(149,124,61,0.84) 100%);
+      border-radius: 22px;
+      box-shadow: 0 6px 32px #00234933, 0 2px 14px #957c3d33;
+      padding: 40px 22px 32px 22px;
+      margin: 0 auto 32px auto;
+      max-width: 720px;
+      color: #fff;
+    }
+    .services-section h2 {
+      color: #ffe27a;
+      font-size: 1.47em;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 24px;
+      text-shadow: 0 2px 8px #957c3daa;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    .services-list {
+      list-style: none;
+      padding: 0;
+      color: #fff;
+      font-size: 1.12em;
+      line-height: 1.67;
+      margin: 0;
+      text-shadow: 0 1px 6px #00234999;
+      display: flex;
+      flex-direction: column;
+      gap: 19px;
+    }
+    .services-list li {
+      margin-bottom: 0;
+      display: flex;
+      align-items: flex-start;
+      padding: 9px 0 5px 0;
+      border-radius: 7px;
+      background: rgba(255,255,255,0.04);
+      transition: background 0.18s;
+    }
+    .services-list li::before {
+      content: "★ ";
+      color: #ffe27a;
+      margin-right: 12px;
+      font-size: 1.1em;
+      margin-top: 1.5px;
+      flex-shrink: 0;
+      text-shadow: 0 1px 5px #957c3dbb;
+      white-space: pre;
+    }
+
+    .side-by-side-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      max-width: 720px;
+      margin: 42px auto 32px auto;
+      flex-wrap: wrap;
+      color: #fff;
+    }
+    .martial-arts-list {
+      background: linear-gradient(135deg, rgba(0,35,73,0.93) 0%, rgba(149,124,61,0.84) 100%);
+      border-radius: 22px;
+      box-shadow: 0 6px 32px #00234933, 0 2px 14px #957c3d33;
+      padding: 40px 22px 32px 22px;
+      flex: 1 1 320px;
+    }
+    .martial-arts-list h2 {
+      color: #ffe27a;
+      font-size: 1.47em;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 24px;
+      text-shadow: 0 2px 8px #957c3daa;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    .martial-arts-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 1.12em;
+      line-height: 1.67;
+      text-shadow: 0 1px 6px #00234999;
+      display: flex;
+      flex-direction: column;
+      gap: 19px;
+      color: #fff;
+    }
+    .martial-arts-list ul li {
+      display: flex;
+      align-items: flex-start;
+      padding: 9px 0 5px 0;
+      border-radius: 7px;
+      background: rgba(255,255,255,0.04);
+      transition: background 0.18s;
+      margin-bottom: 0;
+    }
+    .martial-arts-list ul li::before {
+      content: "★ ";
+      color: #ffe27a;
+      margin-right: 12px;
+      font-size: 1.1em;
+      margin-top: 1.5px;
+      flex-shrink: 0;
+      text-shadow: 0 1px 5px #957c3dbb;
+      white-space: pre;
+    }
+
+    /* Gallery Styles added as per request */
+    .image-gallery {
+      display: grid;
+      max-width: 720px;
+      margin: 40px auto 60px auto;
+      gap: 28px;
+      font-family: 'League Spartan', 'Montserrat', 'Canva Sans', Arial, sans-serif;
+      color: #fff;
+    }
+    .image-gallery .full-width {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .image-gallery .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .image-gallery h2 {
+      color: #ffe27a;
+      font-size: 1.47em;
+      font-weight: 800;
+      margin: 12px 0 18px 0;
+      text-shadow: 0 2px 8px #957c3daa;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    .image-gallery img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: 0 6px 32px #00234933, 0 2px 14px #957c3d33;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .services-section,
+      .martial-arts-list {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+      .side-by-side-container {
+        margin: 42px 5vw 32px 5vw;
+      }
+      .services-section {
+        padding: 30px 15px 25px 15px;
+      }
+      .martial-arts-list {
+        padding: 30px 15px 25px 15px;
+      }
+      .image-gallery .two-columns {
+        grid-template-columns: 1fr;
+      }
+      .image-gallery img {
+        height: 180px;
+      }
+    }
+    footer {
+      width: 100vw;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      padding: 8px 0;
+      background: linear-gradient(90deg, rgba(255,255,255,0.32), rgba(0,0,0,0.17), rgba(255,255,255,0.32));
+      color: #fff;
+      text-align: center;
+      font-size: 0.9em;
+      letter-spacing: 0.4px;
+      backdrop-filter: blur(4px);
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="pricing.html">Prices & Membership</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="instructors.html">Instructors</a>
+    <a href="account.html">Account</a>
+    <a href="contactsocialpage.html">Contact & Community</a>
+  </nav>
+  <div class="container">
+    <h1>Welcome to DoBu Martial Arts</h1>
+    <p>
+      Promoting fitness, discipline, and community through martial arts.<br />
+      Explore our classes, meet our expert instructors, and join our growing community!
+    </p>
+    <a href="pricing.html" class="cta-btn" aria-label="See all our deals and memberships">
+      <span>🔥 Check out our deals!</span>
+    </a>
+    <hr style="margin: 38px 0 28px 0; border: none; border-top: 2px solid #957C3D33;" />
+    <div class="side-by-side-container">
+      <div class="martial-arts-list">
+        <h2>Martial Arts We Teach</h2>
+        <ul>
+          <li><strong>Jiu-jitsu</strong> – Grappling, self-defence, and ground fighting techniques.</li>
+          <li><strong>Judo</strong> – Throws, pins, and submission holds.</li>
+          <li><strong>Karate</strong> – Striking, blocking, and kata forms.</li>
+          <li><strong>Muay Thai</strong> – Striking with fists, elbows, knees, and shins.</li>
+          <li><strong>Kids Martial Arts</strong> – Special classes for children focusing on discipline, fitness, and fun.</li>
+          <li><strong>Self-defence</strong> – Practical techniques for real-world situations.</li>
+          <li><strong>Fitness Training</strong> – Strength and conditioning for all levels.</li>
+        </ul>
+      </div>
+      <section class="services-section" id="services">
+        <h2>Other Services We Offer</h2>
+        <ul class="services-list">
+          <li><b>Personal Fitness Training</b> for tailored one-to-one fitness plans</li>
+          <li><b>Private Tuition</b> through individual martial arts instruction</li>
+          <li><b>Self-Defence Workshops</b> as periodic short courses for all ages and abilities</li>
+          <li><b>Fitness Room Access</b> with well-equipped gym facilities for members</li>
+          <li><b>Specialist Courses</b> such as women's self-defence and competition preparation</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Added image gallery inside same container, below the above -->
+    <section class="image-gallery">
+      <div class="gallery-item full-width">
+        <h2>Training Background</h2>
+        <img src="images/trainingbackground.jpeg" alt="Training Background" />
+      </div>
+      <div class="gallery-item two-columns">
+        <div>
+          <h2>Gym Changing Rooms</h2>
+          <img src="images/gymchangingrooms.jpeg" alt="Gym Changing Rooms" />
+        </div>
+        <div>
+          <h2>Gym Equipment</h2>
+          <img src="images/gymequipment.jpeg" alt="Gym Equipment" />
+        </div>
+      </div>
+      <div class="gallery-item full-width">
+        <h2>Gym Sauna</h2>
+        <img src="images/gymsauna.jpeg" alt="Gym Sauna" />
+      </div>
+      <div class="gallery-item full-width">
+        <h2>Gym Steam Room</h2>
+        <img src="images/gymsteamroom.jpeg" alt="Gym Steam Room" />
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    © 2025 DoBu Martial Arts. All rights reserved.
+  </footer>
+</body>
+</html>

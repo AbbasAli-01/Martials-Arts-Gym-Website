@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Account - DoBu Martial Arts</title>
+  <link rel="stylesheet" href="gymcss.css">
+  <script defer src="gymscript.js"></script>
+  <style>
+    h1 {
+      text-align: center;
+    }
+    .account-flex {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .account-card {
+      background: linear-gradient(135deg, rgba(0,35,73,0.92) 0%, rgba(149,124,61,0.80) 100%);
+      padding: 36px 32px 28px 32px;
+      border-radius: 22px;
+      box-shadow: 0 6px 32px #00234944, 0 2px 20px #957c3d33;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 350px;
+      min-width: 260px;
+      gap: 14px;
+      border: 1.5px solid #957c3d88;
+      transition: box-shadow 0.23s, border 0.23s;
+    }
+    .account-card h2 {
+      margin: 0 0 18px 0;
+      font-size: 1.17em;
+      letter-spacing: 0.5px;
+      color: #fff;
+      background: none;
+      text-align: center;
+      font-weight: 700;
+      text-shadow: 0 2px 10px #00234999, 0 1px 2px #957c3d99;
+    }
+    .account-card input {
+      width: 100%;
+      margin-bottom: 10px;
+      text-align: center;
+      background: rgba(255,255,255,0.93);
+      color: #002349;
+      border: 1.5px solid #b0b8c1;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 1.05em;
+      font-family: inherit;
+      box-shadow: 0 1px 4px #00234922;
+      transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .account-card input:focus {
+      border: 2px solid #957c3d;
+      background: #fff;
+      color: #002349;
+      outline: none;
+      box-shadow: 0 0 10px #957c3d44;
+    }
+    .account-card button {
+      width: 100%;
+      margin-bottom: 6px;
+      font-size: 1.09em;
+      background: linear-gradient(90deg, #957C3D 0%, #002349 100%);
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 22px;
+      padding: 13px 0;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 18px #00234922, 0 2px 12px #957c3dcc;
+      text-shadow: 0 2px 8px #002349b0;
+      transition: 
+        background 0.21s,
+        color 0.18s,
+        transform 0.15s,
+        box-shadow 0.17s;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .account-card button:hover, .account-card button:focus {
+      background: linear-gradient(90deg, #002349 0%, #957C3D 100%);
+      color: #fff;
+      transform: scale(1.04) translateY(-2px);
+      box-shadow: 0 8px 32px #00234955, 0 2px 16px #957c3d33;
+      outline: none;
+    }
+    .account-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      min-width: 1px;
+      background: linear-gradient(to bottom, #957c3d 10%, #002349 90%);
+      width: 2.5px;
+      border-radius: 3px;
+      margin: 0 0 0 0;
+      opacity: 0.85;
+    }
+    .center-status-logout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 18px;
+      width: 100%;
+    }
+    #logout-btn {
+      margin: 10px 0 0 0; /* minimal top margin from status */
+      display: block;
+      font-size: 1.09em;
+      background: linear-gradient(90deg, #002349 0%, #957C3D 100%);
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 22px;
+      padding: 13px 32px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 18px #00234922, 0 2px 12px #957c3dcc;
+      text-shadow: 0 2px 8px #002349b0;
+      transition: 
+        background 0.21s,
+        color 0.18s,
+        transform 0.15s,
+        box-shadow 0.17s;
+      cursor: pointer;
+      font-family: inherit;
+      /* Remove width and max-width for compactness */
+      /* margin: auto; is unnecessary thanks to flex centering */
+    }
+    #logout-btn:not(.show) {
+      display: none;
+    }
+    #logout-btn.show {
+      display: block;
+    }
+    #account-status {
+      margin-bottom: 0;
+      font-size: 1.08em;
+      text-align: center;
+      color: #957C3D;
+      font-weight: 700;
+      text-shadow: 0 2px 8px #002349b0;
+    }
+    .account-help {
+      margin-top: 28px;
+      text-align: center;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.04em;
+      opacity: 0.88;
+      color: #fff;
+      text-shadow: 0 2px 8px #002349b0;
+    }
+    .register-headline {
+      color: #ffe27a;
+      font-weight: 600;
+      font-size: 1.13em;
+      text-align: center;
+      margin-bottom: 0.7em;
+      text-shadow: 0 1px 4px #002349bb;
+    }
+    @media (max-width: 800px) {
+      .account-flex {
+        flex-direction: column;
+        gap: 24px;
+        align-items: stretch;
+      }
+      .account-divider {
+        display: none;
+      }
+      .account-card {
+        max-width: 98vw;
+        padding: 18px;
+        min-width: 0;
+      }
+      .center-status-logout {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body onload="checkLogin()">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="pricing.html">Prices & Membership</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="instructors.html">Instructors</a>
+    <a href="account.html">Account</a>
+    <a href="contactsocialpage.html">Contact & Community</a>
+  </nav>
+  <div class="container">
+    <h1>Account Management</h1>
+
+    <!-- Strictly centered status & logout using flex container -->
+    <div class="center-status-logout">
+      <div id="account-status"></div>
+      <button id="logout-btn" onclick="logoutAccount();" class="">Logout</button>
+    </div>
+
+    <div class="account-flex">
+      <form class="account-card" id="register-form" onsubmit="registerAccount(); return false;">
+        <div class="register-headline">No account yet? Create one here!</div>
+        <h2>Register</h2>
+        <input type="text" id="reg-username" placeholder="Username" autocomplete="username" required>
+        <input type="email" id="reg-email" placeholder="Email" autocomplete="email" required>
+        <input type="tel" id="reg-phone" placeholder="Phone Number" autocomplete="tel" required>
+        <input type="password" id="reg-password" placeholder="Password" autocomplete="new-password" required>
+        <button type="submit">Register Now</button>
+      </form>
+      <div class="account-divider"></div>
+      <form class="account-card" id="login-form" onsubmit="loginAccount(); return false;">
+        <h2>Sign In</h2>
+        <input type="text" id="login-useroremail" placeholder="Username or Email" autocomplete="username" required>
+        <input type="password" id="login-password" placeholder="Password" autocomplete="current-password" required>
+        <button type="submit">Login Now</button>
+      </form>
+    </div>
+    <p class="account-help">After logging in, you can manage your membership along with everything else.</p>
+  </div>
+  <footer style="width:100vw; position:fixed; left:0; bottom:0; padding:8px 0; background:linear-gradient(90deg, rgba(255,255,255,0.32), rgba(0,0,0,0.17), rgba(255,255,255,0.32)); color:#fff; text-align:center; font-size:0.9em; letter-spacing:0.4px; backdrop-filter:blur(4px); z-index:100;">
+    © 2025 DoBu Martial Arts. All rights reserved.
+  </footer>
+  <script>
+  // Example: Control the logged-in state for demo; replace with your real auth logic
+  function checkLogin() {
+    // Let's suppose for demo: user is logged in if localStorage.loggedIn set
+    var loggedIn = localStorage.getItem('loggedIn') === 'true';
+    var statusDiv = document.getElementById('account-status');
+    var logoutBtn = document.getElementById('logout-btn');
+    var loginForm = document.getElementById('login-form');
+    var registerForm = document.getElementById('register-form');
+    if (loggedIn) {
+      statusDiv.textContent = "You are now logged in!";
+      logoutBtn.classList.add('show');
+      loginForm.style.display = 'none';
+      registerForm.style.display = 'none';
+    } else {
+      statusDiv.textContent = "";
+      logoutBtn.classList.remove('show');
+      loginForm.style.display = '';
+      registerForm.style.display = '';
+    }
+  }
+  // Example logout implementation for demo:
+  function logoutAccount() {
+    localStorage.setItem('loggedIn', 'false');
+    checkLogin();
+  }
+  </script>
+</body>
+</html>
